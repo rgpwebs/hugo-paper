@@ -1,8 +1,8 @@
 </main>
 <footer class="footer">
-  <span>&copy; {{ if eq now.Year 2018 }}2018{{ else }}2018-{{ now.Year }}{{ end }} {{ .Site.Params.Author }}</span>
+  <span><i class="fas fa-copyright"></i> {{ if eq now.Year 2018 }}2018{{ else }}2018-{{ now.Year }}{{ end }} {{ .Site.Params.Author }}</span>
   {{ range $footerLinks := sort $.Site.Params.footer "weight" "asc" }}
-  <span>&middot;</span><span>{{ .pre }}<a href={{ .url }} target="_blank">{{ .name}}</a></span>
+  <span><a href={{ .url }} target="_blank">{{- if .pre -}}{{ safeHTML .pre}} {{ end }}{{ .name}}</a></span>
   {{ end }}
   <br />
   <span class="light">Powered by <a href="https://gohugo.io/" target="_blank">Hugo</a> &amp; <a href="http://21beats.com/" target="_blank">️21beats</a></span>

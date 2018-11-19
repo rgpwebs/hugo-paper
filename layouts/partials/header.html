@@ -24,6 +24,8 @@
   {{ end -}}
   <!-- Styles -->
   <link href="/css/style.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
+    crossorigin="anonymous">
   <!-- Favicons -->
   <link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
   <link rel="icon" href="/img/favicon.ico">
@@ -45,7 +47,7 @@
         {{ $currentPage := . }}
         {{ range .Site.Menus.main }}
         <li class="{{ if $currentPage.IsMenuCurrent `main` . }}active{{ end }}">
-           <a href="{{ .URL }}">{{- if .Pre}}{{- .Pre}} {{- end}}{{ .Name }}</a>
+           <a href="{{ .URL }}">{{- if .Pre -}}<span class="header-pre">{{ safeHTML .Pre}}</span>{{ end }}{{ .Name }}</a>
         </li>
         {{ end }}
       </ul>
