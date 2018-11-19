@@ -23,8 +23,6 @@
   <meta name="author" content="{{ .Site.Params.author }}">
   {{ end -}}
   <!-- Styles -->
-  <link href="https://fonts.googleapis.com/css?family=PT+Sans:400,400i,700,700i" rel="stylesheet">
-  <link href="https://cdn.bootcss.com/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet">
   <link href="/css/style.css" rel="stylesheet">
   <!-- Favicons -->
   <link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
@@ -47,7 +45,7 @@
         {{ $currentPage := . }}
         {{ range .Site.Menus.main }}
         <li class="{{ if $currentPage.IsMenuCurrent `main` . }}active{{ end }}">
-          <a href="{{ .URL }}">{{ .Name }}</a>
+           <a href="{{ .URL }}">{{- if .Pre}}{{- .Pre}} {{- end}}{{ .Name }}</a>
         </li>
         {{ end }}
       </ul>

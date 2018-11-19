@@ -7,6 +7,9 @@
 
 /* Reset
 ============================================================= */
+@import "fonts.css";
+@import "highlight.css";
+
 *,
 *::before,
 *::after {
@@ -487,4 +490,8 @@ pre, code {
   .footer span:nth-child(2n) {
     display: none;
   }
+}
+
+.light {
+  color: #AAA;
 }
