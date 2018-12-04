@@ -403,6 +403,7 @@ pre, code {
 .post-content pre {
   padding: 20px;
   background: rgba(0, 0, 0, .05);
+  overflow-x: auto;
 }
 .post-content pre code {
   padding: 0;
@@ -413,6 +414,7 @@ pre, code {
   font-size: 15px;
   background: rgba(0, 0, 0, .05);
   border-radius: 3px;
+  overflow-x: auto;
 }
 .post-content blockquote {
   margin: 0 0 0 -23px;
