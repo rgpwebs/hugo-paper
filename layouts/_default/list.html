@@ -3,11 +3,18 @@
 <header class="list-header">
   {{ if eq .Data.Singular "tag" }}<span>Tagged in</span>
   <h1 class="list-title">{{ .Data.Term }}</h1>
-  {{ else }}<h1 class="list-title">Posts</h1>
+  {{ else }}
+  <h1 class="list-title">{{ .Page.CurrentSection.Name }}</h1>
   {{ end }}
 </header>
 {{ end }}
-{{ $paginator := .Paginate (where .Pages ".Params.type" "!=" "page") (index .Site.Params "paginate" | default 10) }}
+{{ if .IsHome }}
+{{ .Scratch.Set "paginator" (.Paginate (where .Pages ".Section" "==" "posts") (index .Site.Params "paginate" | default 10)) }}
+{{ else }}
+{{ .Scratch.Set "paginator" (.Paginate (.Pages) (index .Site.Params "paginate" | default 10)) }}
+{{ end }}
+
+{{ $paginator := .Scratch.Get `paginator` }}
 {{ if gt $paginator.TotalPages 0 }}
 {{ range $index, $page := $paginator.Pages }}
 {{ if and $.IsHome (eq $paginator.PageNumber 1) (eq $index 0) }}
