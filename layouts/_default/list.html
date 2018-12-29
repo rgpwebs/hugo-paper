@@ -26,9 +26,9 @@
   <header class="post-header">
     <h2 class="post-title">{{ .Title }}</h2>
   </header>
-  <p class="post-summary">{{ .Summary | plainify | htmlUnescape }}...</p>
+  <p class="post-summary">{{ .Summary | plainify | htmlUnescape }}</i> </p>
   <footer class="post-footer">
-    <p class="post-meta">{{ .Date.Format "2006-1-2" }}</p>
+    <p class="post-meta"><i class="far fa-calendar"></i> {{ .Date.Format "2006-1-2" }}</p>
   </footer>
   <a class="post-link" href="{{ .Permalink }}"></a>
 </article>
